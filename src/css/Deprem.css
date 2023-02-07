@@ -1,0 +1,9 @@
+.menu{
+    list-style: none;
+    display: block;
+}
+
+.menu li{
+    display: inline;
+    position:relative;
+}
