@@ -10,7 +10,6 @@ export default function Deprem() {
     )
 	const json = await response.json();
 	setUsers(json.result)
-	console.log(json)
   };
 
   useEffect(() => {
