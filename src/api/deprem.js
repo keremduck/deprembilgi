@@ -7,7 +7,7 @@ export default function Deprem() {
 	const getApiData = async () => {
     const response = await fetch(
       "https://api.orhanaydogdu.com.tr/deprem/live.php?limit=500"
-    )
+    );
 	const json = await response.json();
 	setUsers(json.result)
   };
@@ -15,6 +15,7 @@ export default function Deprem() {
   useEffect(() => {
     getApiData();
   }, []);
+
   return (
 	<div>
 		{users.length > 0 && users.map(deprem => (
@@ -22,11 +23,11 @@ export default function Deprem() {
 		<h4 className="card-body mt-4">{deprem.lokasyon ? deprem.lokasyon : <h4>Yer bulunamadı</h4>}</h4>
 		<hr/>
 		<div className="card-body">
-		<p className="card-text">Tarih: {deprem.date ? deprem.date : <p>Deprem tarihi bulunamadı</p>}</p>
-		<p className="card-text">Büyüklük: {deprem.mag ? deprem.mag : <p>Deprem şiddeti bulunamadı</p>}</p>
-		<p className="card-text">Derinlik: {deprem.depth ? deprem.depth : <p>Deprem derinliği bulunamadı</p>}km</p>
-		<p className="card-text">Enlem: {deprem.lat ? deprem.lat : <p>Deprem eni bulunamadı</p>}km</p>
-		<p className="card-text">Boylam: {deprem.lng ? deprem.lng : <p>Deprem boylamı bulunamadı</p>}km</p>
+		<p className="card-text">Tarih: <b>{deprem.date ? deprem.date : <p>Deprem tarihi bulunamadı</p> } </b></p>
+		<p className="card-text">Büyüklük: <b>{deprem.mag ? deprem.mag : <p>Deprem şiddeti bulunamadı</p>}</b></p>
+		<p className="card-text">Derinlik: <b>{deprem.depth ? deprem.depth : <p>Deprem derinliği bulunamadı</p>}km </b></p>
+		<p className="card-text">Enlem: <b>{deprem.lat ? deprem.lat : <p>Deprem eni bulunamadı</p>}km </b></p>
+		<p className="card-text">Boylam: <b>{deprem.lng ? deprem.lng : <p>Deprem boylamı bulunamadı</p>}km </b></p>
 		</div>
 		</div>
 		))}
