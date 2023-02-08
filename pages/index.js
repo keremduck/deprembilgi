@@ -8,10 +8,11 @@ import { ColorRing } from 'react-loader-spinner'
 
 export default function Home() {
     const [eq, setEq] = useState([]);
+
     const getData = async () => {
-    const response = await fetch('https://api.orhanaydogdu.com.tr/deprem/live.php?limit=500');
-    const data = await response.json();
-    setEq(data.result)
+      const response = await fetch('https://api.orhanaydogdu.com.tr/deprem/live.php?limit=500');
+      const data = await response.json();
+      setEq(data.result)
     }
 
     useEffect(() => {
