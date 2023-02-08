@@ -26,22 +26,22 @@ export default function Home() {
         <meta name="description" content="Türkiyede son olan 500 depremi ayrıntılı bir biçimde gösterir." />
       </Head>
       <div className={"row","loader hidden"}>
-      <Vortex
-        heigth="100"
-        width="100"
-        color='white'
-        ariaLabel='loading'
-      />
-    </div>
-      <Navbar />
-      <div>
-        {eq.map((item) => {
-          return (
-            <div>
-              <Card location={item.lokasyon} date={item.date} magnitude={item.mag} depth={item.depth} lat={item.lat} lng={item.lng}/>
-            </div>
-          )
-        })}
+        <Vortex
+          heigth="100"
+          width="100"
+          color='white'
+          ariaLabel='loading'
+        />
+      </div>
+        <Navbar />
+        <div>
+          {eq.map((item, index) => {
+            return (
+              <div>
+                <Card key={"index"} location={item.lokasyon} date={item.date} magnitude={item.mag} depth={item.depth} lat={item.lat} lng={item.lng}/>
+              </div>
+            )
+          })}
       </div>
     </>
   )
