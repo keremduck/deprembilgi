@@ -4,11 +4,12 @@ import React, {useEffect, useState} from 'react';
 const inter = Inter({ subsets: ['latin'] })
 import Navbar from './components/Navbar';
 import Card from './components/Card';
-import { ColorRing } from 'react-loader-spinner'
+import { Vortex } from 'react-loader-spinner'
+
+// Skeleton Loader yap.
 
 export default function Home() {
     const [eq, setEq] = useState([]);
-
     const getData = async () => {
       const response = await fetch('https://api.orhanaydogdu.com.tr/deprem/live.php?limit=500');
       const data = await response.json();
@@ -18,7 +19,6 @@ export default function Home() {
     useEffect(() => {
       getData();
     })
-
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function Home() {
         <meta name="description" content="Türkiyede son olan 500 depremi ayrıntılı bir biçimde gösterir." />
       </Head>
       <div className={"row","loader hidden"}>
-      <ColorRing
+      <Vortex
         heigth="100"
         width="100"
         color='white'
