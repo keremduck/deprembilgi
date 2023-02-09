@@ -6,8 +6,6 @@ import Navbar from './components/Navbar';
 import Card from './components/Card';
 import { Vortex } from 'react-loader-spinner'
 
-// Skeleton Loader yap.
-
 export default function Home() {
     const [eq, setEq] = useState([]);
     const getData = async () => {
@@ -15,6 +13,7 @@ export default function Home() {
       const data = await response.json();
       setEq(data.result)
     }
+
 
     useEffect(() => {
       getData();
@@ -35,10 +34,10 @@ export default function Home() {
       </div>
         <Navbar />
         <div>
-          {eq.map((item, index) => {
+          {eq.map((item) => {
             return (
               <div>
-                <Card key={"index"} location={item.lokasyon} date={item.date} magnitude={item.mag} depth={item.depth} lat={item.lat} lng={item.lng}/>
+                <Card location={item.lokasyon} date={item.date} magnitude={item.mag} depth={item.depth} lat={item.lat} lng={item.lng}/>
               </div>
             )
           })}
