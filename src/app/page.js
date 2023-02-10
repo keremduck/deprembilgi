@@ -205,7 +205,9 @@ export default function Home() {
                                                         </div>
                                                         {eq.moment ? (
                                                             <div className="h-2 rounded-full mb-3"><span
-                                                                className="font-bold">Moment:</span> {eq.moment}</div>
+                                                                className="font-bold">Moment:</span> <span className={
+                                                                eq.magnitude >= 5 ? "text-red-500" : eq.magnitude >= 4 ? "text-yellow-500" : eq.magnitude >= 3 ? "text-green-500" : "text-blue-500"
+                                                            }>{eq.moment}</span></div>
                                                         ) : <div className="animate-pulse w-28 mt-5 bg-gray-400 h-2"
                                                                  style={{borderRadius: "2px"}}></div>}
                                                     </div>
