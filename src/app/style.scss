@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+}
+
+.eqs {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#style-3::-webkit-scrollbar-track
+{
+  background-color: #fff;
+}
+
+#style-3::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #fff;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+  background-color: #ddd;
+}
