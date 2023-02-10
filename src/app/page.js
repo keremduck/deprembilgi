@@ -1,6 +1,6 @@
 "use client"
 
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Inter} from '@next/font/google';
 import useSWR from 'swr';
 
@@ -9,9 +9,25 @@ const inter = Inter({subsets: ['latin']});
 export default function Home() {
     const [filter, setFilter] = useState('reset');
     const [search, setSearch] = useState('');
+    const [data, setData] = useState(null);
 
     const fetcher = url => fetch(url).then(r => r.json());
-    const {data, error} = useSWR('https://deprem-api-orhan-hasan-diff.vercel.app/all', fetcher);
+    const {data: Data, error} = useSWR('https://deprem-api-orhan-hasan-diff.vercel.app/all', fetcher);
+
+
+    useEffect(() => {
+        if (Data) {
+            setData(Data);
+        }
+    }, [Data])
+
+    const refresh = () => {
+        setData(null);
+
+        setTimeout(() => {
+            setData(Data)
+        }, 3000);
+    }
 
     const filtering = (data) => {
         if (filter === 'reset') return data.sort((a, b) => b.timestamp - a.timestamp);
@@ -111,13 +127,18 @@ export default function Home() {
                                    className="block w-full outline-none p-4 pl-10 text-sm text-gray-900 rounded-lg"
                                    placeholder={data && data.result && data.result.length + " deprem verisini filtrelemek için deprem üssü yazınız."} required/>
                             <button type="submit"
-                                    className="text-white transition-all ease absolute right-0 bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Search
+                                    className="text-white transition-all ease absolute right-[75px] bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Search
                             </button>
 
-                            {data && <button className="text-white transition-all ease absolute right-20 bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
+                            {data && <button className="text-white transition-all ease absolute right-[145px] bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
                                 {filtering(data.result)
                                     .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase())).length}
                             </button>}
+
+                            <button type="submit"
+                                    onClick={refresh}
+                                    className="text-white transition-all ease absolute right-0 bottom-1.5 bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm px-4 py-2">Refresh
+                            </button>
                         </div>
 
                         <div id="style-3"
@@ -158,8 +179,8 @@ export default function Home() {
                                         .map((eq, i) => (
                                             <div key={i} role="status"
                                                  className="bg-[#ddd] h-58 max-w-sm p-4 rounded md:p-6">
-                                                <div className="h-2 rounded-full mb-3"><span
-                                                    className="font-bold">Deprem Üssü:</span> {eq.base}</div>
+                                                <div className="h-2 rounded-full mb-3"><div className="truncate"><span
+                                                    className="font-bold">Deprem Üssü:</span> {eq.base}</div></div>
                                                 <div className="font-medium h-2 rounded-full mb-4">
                                                     <div className="truncate"><span
                                                         className="font-bold">Konum:</span> {eq.location}</div>
