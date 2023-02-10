@@ -2,4 +2,4 @@
 
 - Türkiye'de olan son depremleri ayrıntılı bir şekilde gösterir
 
-- [deprembilgi.vercel.app](deprembilgi.vercel.app)
+- [deprembilgi.vercel.app](https://deprembilgi.vercel.app)
