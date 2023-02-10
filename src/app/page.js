@@ -113,7 +113,7 @@ export default function Home() {
                 <div className="container mx-auto">
                     <div className="flex flex-col">
                         <label htmlFor="search"
-                               className="mb-2 text-sm font-medium sr-only">Search</label>
+                               className="mb-2 text-sm font-medium sr-only">Ara</label>
                         <div className="relative w-[55%] mt-[-10px] mx-auto mb-2">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500"
@@ -129,7 +129,7 @@ export default function Home() {
                                    className="block w-full outline-none p-4 pl-10 text-sm text-gray-900 rounded-lg"
                                    placeholder={data && data.result && data.result.length + " deprem verisini filtrelemek için deprem üssü yazınız."} required/>
                             <button type="submit"
-                                    className="text-white transition-all ease absolute right-[75px] bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Search
+                                    className="text-white transition-all ease absolute right-[75px] bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Ara
                             </button>
 
                             {data && <button className="text-white transition-all ease absolute right-[145px] bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
@@ -139,7 +139,7 @@ export default function Home() {
 
                             <button type="submit"
                                     onClick={refresh}
-                                    className="text-white transition-all ease absolute right-0 bottom-1.5 bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm px-4 py-2">Refresh
+                                    className="text-white transition-all ease absolute right-0 bottom-1.5 bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm px-4 py-2">Yenile
                             </button>
                         </div>
 
