@@ -60,6 +60,8 @@ export default function Home() {
                         <span
                             className="mt-1 lg:text-[22px] self-center text-xl font-semibold whitespace-nowrap">Deprem Bilgi</span>
                     </a>
+                    <span className="absolute bottom-3 left-[195px] text-xs underline text-red-600"><a href="https://deprem-api-orhan-hasan-diff.vercel.app/">API</a></span>
+
                     <div className="flex md:order-2">
                         <button data-collapse-toggle="navbar-sticky" type="button"
                                 className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100"
