@@ -51,6 +51,9 @@ export default function Home() {
 
     return (
         <div>
+            <head>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3365692366727044" crossorigin="anonymous"></script>
+            </head>
             <nav
                 className="eqs relative lg:w-[55%] bg-white px-2 sm:px-4 mt-3 py-2.5 z-20">
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
