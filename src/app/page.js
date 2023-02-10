@@ -115,7 +115,7 @@ export default function Home() {
                             </button>
 
                             <button className="text-white transition-all ease absolute right-20 bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
-                                {filtering(data.result)
+                                {data && filtering(data.result)
                                     .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase())).length}
                             </button>
                         </div>
