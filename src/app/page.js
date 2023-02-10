@@ -114,10 +114,10 @@ export default function Home() {
                                     className="text-white transition-all ease absolute right-0 bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Search
                             </button>
 
-                            <button className="text-white transition-all ease absolute right-20 bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
-                                {data && filtering(data.result)
+                            {data && <button className="text-white transition-all ease absolute right-20 bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
+                                {filtering(data.result)
                                     .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase())).length}
-                            </button>
+                            </button>}
                         </div>
 
                         <div id="style-3"
