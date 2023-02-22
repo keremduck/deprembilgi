@@ -57,7 +57,7 @@ export default function Home() {
             <nav
                 className="eqs relative lg:w-[55%] bg-white px-2 sm:px-4 mt-3 py-2.5 z-20">
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
-                    <a href="#" className="flex items-center">
+                    <a href="/" className="flex items-center">
                         <img src={process.env.DOMAIN + "/icon.svg"} className="h-8 mr-4 sm:h-9"
                              alt=""/>
                         <span
@@ -102,7 +102,7 @@ export default function Home() {
 
                                     <input onChange={(e) => setFilter(e.target.value)} className="mr-1" type="radio"
                                            id="reset" name="filter" value="reset"/>
-                                    <label className="mr-3" htmlFor="reset">Reset</label>
+                                    <label className="mr-3" htmlFor="reset">Sıfırla</label>
                                 </li>
                             </form>
                         </ul>
@@ -113,7 +113,6 @@ export default function Home() {
             <hr className="mx-auto mt-2 lg:w-[55%]"/>
 
             <div className="eqs mt-4 lg:w-[55%] h-full">
-                <div className="container mx-auto">
                     <div className="flex flex-col">
                         <label htmlFor="search"
                                className="mb-2 text-sm font-medium sr-only">Ara</label>
@@ -129,21 +128,8 @@ export default function Home() {
                             <input type="text" id="search"
                                    value={search}
                                    onChange={(e) => setSearch(e.target.value)}
-                                   className="block w-full outline-none p-4 pl-10 text-sm text-gray-900 rounded-lg"
-                                   placeholder={data && data.result && data.result.length + " deprem verisini filtrelemek için deprem üssü yazınız."} required/>
-                            <button type="submit"
-                                    className="text-white transition-all ease absolute right-[75px] bottom-1.5 bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2">Ara
-                            </button>
-
-                            {data && <button className="text-white transition-all ease absolute right-[145px] bottom-1.5 bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-4 py-2">
-                                {filtering(data.result)
-                                    .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase())).length}
-                            </button>}
-
-                            <button type="submit"
-                                    onClick={refresh}
-                                    className="text-white transition-all ease absolute right-0 bottom-1.5 bg-orange-700 hover:bg-orange-800 font-medium rounded-lg text-sm px-4 py-2">Yenile
-                            </button>
+                                   className="block w-full outline-none p-4 pl-10 text-sm text-gray-900 rounded-lg "
+                                   placeholder={data && data.result && data.result.length + " deprem verisini filtrelemek için deprem üssü yazınız. (Türkçe karakter kullanmayınız)"} required/>
                         </div>
 
                         <div id="style-3"
@@ -177,7 +163,7 @@ export default function Home() {
                                 filtering(data.result)
                                     .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase())).length === 0
                                     ?
-                                    <h1 className="text-center text-2xl font-bold">Sonuç bulunamadı.</h1>
+                                    <h1 className="float-left text-center text-2xl">Sonuç bulunamadı.</h1>
                                     :
                                     filtering(data.result)
                                         .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase()))
@@ -231,6 +217,5 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
