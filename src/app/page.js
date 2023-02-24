@@ -51,9 +51,6 @@ export default function Home() {
 
     return (
         <div>
-            <head>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3365692366727044" crossorigin="anonymous"></script>
-            </head>
             <nav
                 className="eqs relative lg:w-[55%] bg-white px-2 sm:px-4 mt-3 py-2.5 z-20">
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -65,7 +62,7 @@ export default function Home() {
                     </a>
                     <span className="absolute bottom-3 left-[195px] text-xs underline text-red-600"><a href="https://deprem-api-orhan-hasan-diff.vercel.app/">API</a></span>
 
-                    <div className="flex md:order-2">
+                    <div className="flex">
                         <button data-collapse-toggle="navbar-sticky" type="button"
                                 className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100"
                                 aria-controls="navbar-sticky" aria-expanded="false">
@@ -137,7 +134,7 @@ export default function Home() {
                             {!data ? (
                                 new Array(15).fill(0).map((_, i) => (
                                     <div key={i} role="status"
-                                         className="bg-[#ddd] h-58 max-w-sm p-4 rounded md:p-6">
+                                         className="bg-[#ddd] h-58 max-w-sm p-4 rounded md:p-6 ml-3">
                                         <div className="animate-pulse bg-gray-400 h-2 rounded-full mb-3"></div>
                                         <div
                                             className="animate-pulse bg-gray-400 font-medium h-2 rounded-full mb-4"></div>
@@ -169,7 +166,7 @@ export default function Home() {
                                         .filter((eq) => eq.base.toLowerCase().includes(search.toLowerCase()))
                                         .map((eq, i) => (
                                             <div key={i} role="status"
-                                                 className="bg-[#ddd] h-58 max-w-sm p-4 rounded md:p-6">
+                                                 className="bg-[#ddd] h-58 max-w-sm p-4 rounded md:p-6 ml-3">
                                                 <div className="h-2 rounded-full mb-3"><div className="truncate"><span
                                                     className="font-bold">Deprem Üssü:</span> {eq.base}</div></div>
                                                 <div className="font-medium h-2 rounded-full mb-4">
